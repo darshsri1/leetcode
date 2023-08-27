@@ -1,0 +1,32 @@
+q2215
+https://leetcode.com/problems/find-the-difference-of-two-arrays/description/
+class Solution {
+public:
+    vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
+        unordered_map<int,int>mp1,mp2;
+      
+        vector<vector<int>>ans;
+        for(int i=0;i<nums1.size();i++){
+            mp1[nums1[i]]++;
+        }
+        for(int j=0;j<nums2.size();j++){
+            mp2[nums2[j]]++;
+        }
+        vector<int>temp1;
+     for(auto i:nums1){
+         if(mp1[i]>0 && mp2.count(i)==0)
+         temp1.push_back(i);
+         mp1[i]=0;
+     }
+     vector<int>temp2;
+     for(auto i:nums2){
+         if(mp2[i]>0 && mp1.count(i)==0)
+         temp2.push_back(i);
+         mp2[i]=0;
+     }
+
+     ans.push_back(temp1);
+     ans.push_back(temp2);
+      return ans;
+    }
+};

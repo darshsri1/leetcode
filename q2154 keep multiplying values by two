@@ -1,0 +1,15 @@
+https://leetcode.com/problems/keep-multiplying-found-values-by-two/solutions/2986730/c-solution-using-map/
+class Solution {
+public:
+    int findFinalValue(vector<int>& nums, int original) {
+        unordered_set<int>s;
+        for(int i=0;i<nums.size();i++){
+            s.insert(nums[i]);
+        }
+             while(s.find(original)!=s.end()){
+                 original =original*2;
+             } 
+     
+         return original;
+    }
+    

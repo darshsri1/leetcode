@@ -1,0 +1,30 @@
+https://leetcode.com/problems/sort-list/
+//first transfer linklist to array then sort then array to linklist
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        if(head==NULL){
+            return head;
+
+        }
+        vector<int>v1;
+        ListNode*temp=head;
+        while(temp){
+            v1.push_back(temp->val);
+            temp=temp->next;
+
+        }
+        sort(v1.begin(),v1.end());
+
+
+        temp=head;int count=0;
+         while(temp!=NULL){
+             temp->val=v1[count];
+             temp=temp->next;
+             count++;
+         }
+         return head;
+
+
+    }
+};
